@@ -1,9 +1,19 @@
+# pip install pyautogui
+
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
 import pyautogui
 import time
+
+# pyautogui.press -> pressionar uma tecla
+# pyautogui.write -> escrever
+# pyautogui.click -> clicar
+# pyautogui.hotkey -> atalho de teclado (ctrl + c)
 
 pyautogui.PAUSE = 1
 
 # Abrir o navegador (chrome)
+
 pyautogui.press("win")
 pyautogui.write("chrome")
 pyautogui.press("enter")
@@ -23,31 +33,37 @@ pyautogui.press("enter")
 
 # Alterar loja
 time.sleep(3)
-pyautogui.click(x=1071, y=100)
+pyautogui.click(x=1459, y=125)
 
-# Selecionar loja
+# Opção da loja
 time.sleep(2)
-pyautogui.click(x=658, y=363)
+pyautogui.click(x=890, y=504)
 
-# Confirmar loja
+# Seleciona loja
 time.sleep(1)
-pyautogui.click(x=636, y=472)
+pyautogui.click(x=920, y=663)
 
-# Boletin
-pyautogui.click(x=1204, y=406)
+# Confirma a loja
+pyautogui.click(x=1777, y=582)
 
+# Lupa de busca
 time.sleep(1)
-pyautogui.click(x=1191, y=145)
+pyautogui.click(x=1670, y=201)
 
 time.sleep(2)
 pyautogui.write("vendas")
 
 # Vendas por extração
-pyautogui.click(x=1216, y=366)
+pyautogui.click(x=1630, y=548)
 
 # Final da página
-pyautogui.click(x=1358, y=693)
-pyautogui.click(x=1358, y=693)
+
+driver = webdriver.Chrome()
+driver.get("https://ges.avareste.com/pgnVendasOperadorExtracao.aspx")
+body = driver.find_element_by_tag_name("body")
+body.send_keys(Keys.END)
+
+time.sleep(2)
 
 # Desmarcar todos
 pyautogui.click(x=270, y=506)
@@ -67,5 +83,3 @@ pyautogui.hotkey('ctrl', 'p')
 time.sleep(7)
 # Imprimir
 pyautogui.click(x=1019, y=637)
-
-#pyautogui.write("https://dlp.hashtagtreinamentos.com/python/intensivao/login")
